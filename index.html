@@ -50,6 +50,23 @@
         }
     }
 
+    function displayResults(results) {
+        const resultsContainer = document.getElementById('results');
+        resultsContainer.innerHTML = '';
+
+        if (results.length === 0) {
+            resultsContainer.innerHTML = '<p>No results found.</p>';
+            return;
+        }
+
+        results.forEach(result => {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `<a href="https://commons.wikimedia.org/wiki/${encodeURIComponent(result.title)}" target="_blank">${result.title}</a> - ${result.snippet}`;
+            resultsContainer.appendChild(listItem);
+        });
+    }
+
+
     </script>
 </body>
 </html>
